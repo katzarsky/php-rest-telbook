@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Telbook</title>
+	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+	<link rel="stylesheet" type="text/css" href="client/css/default.css">
+	<script type="text/javascript" src="client/js/jquery-3.1.1.js"></script>
+	<script type="text/javascript" src="client/js/jquery-rest.js"></script>
+	<script type="text/javascript" src="client/js/client-data.js"></script>
+	<script type="text/javascript" src="client/js/client.js"></script>
+</head>
+<body>
+	<table class='layout'>
+		
+		<tr>
+			<td class='panel'>
+			<h1>Persons</h1>
+			<div id='persons'></div>
+			<p>
+				<a href='#' class='icon add_icon person-add'>Add new person</a>
+				<a href='#' class='icon refresh_icon persons-refresh'>Refresh</a>
+			</p>
+			</td>
+			<td class='panel'>
+				<div id='person-form'></div>
+				<div id='person-messages'></div>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class='panel'>
+				<h1>Telephones</h1>
+				<div id='telephones'>
+					<p class='icon info_icon'>Click a person to view his/hers telephones.</p>
+				</div>
+			</td>
+			<td class='panel'>
+				<div id='telephone-form'></div>
+				<div id='telephone-messages'></div>
+			</td>
+		</tr>
+		
+	</table>
+	
+	<p class='icon'>
+		<a href='https://github.com/katzarsky/node-telbook.git' class='icon app_icon'>GIT: Download Source</a>
+		<span id='placeholder'></span>
+	</p>
+	
+	<script>
+		var e = document.getElementById('placeholder');
+		if(typeof e !== 'undefined') {
+			e.innerHTML = "(TU Plovdiv, PHP/MYSQL + JS/HTML/CSS/AJAX DEMO, 2017)</i>";
+		}
+	</script>
+</body>
+</html>
