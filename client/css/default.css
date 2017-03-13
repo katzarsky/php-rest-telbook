@@ -47,31 +47,14 @@ a:link, a:visited, a:active, a.link:link, a.link:visited, a.link:active {
 table, input, button { 
 	font-size: 1em;
 }
-
-
-th { text-align:left; }
+th, td { 
+	text-align:left; 
+	vertical-align: top; 
+}
 a:link, a:visited, a:active { text-decoration:none; }
 a:hover { text-decoration:underline; }
 p {	margin: 0.5em 0 0.5em 0; }
 .b, label { font-weight: bold; }
-.i { font-style: italic; }
-img { border: none; }
-.c{ text-align: center; }
-.r{ text-align: right; }
-.float-l{ float:left; }
-.float-r{ float:right; }
-.center{
-	margin-left:0;
-	margin-right:0;
-}
-.bm { vertical-align:bottom;}
-.m { vertical-align:middle;}
-.t { vertical-align:top;}
-.inline{ display: inline; }
-.inline-block{
-	display: inline-block;
-	vertical-align:middle;
-}
 
 table.grid,  
 table.grid th, 
@@ -103,7 +86,6 @@ td.panel {
 	padding: 0.5em 1em;
 	min-width:300px;
 	min-height:150px;
-	vertical-align: top;
 }
 td.panel:hover {
 	/*background: #efe;*/

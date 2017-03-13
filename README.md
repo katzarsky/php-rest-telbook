@@ -1,17 +1,33 @@
 # php-rest-telbook
 
-A simple PHP `telbook` web-app, using REST-full service.
+A simple `telbook` web-application, using REST-full PHP backend.
 
-Utilizes:
+## Utilizes:
 
 	.htaccess (to implement URL rewriting for the server backend)
 
-	PHP
-	Mysqli (module for PHP to easily implement http protocol)
-	PHP Documentation: http://php.net/manual/en/
-
-	MySQL database (with 3 tables)
-
-	AJAX/JSON (transport of data between server and browser)
 	HTML/CSS (browser visualization)
-	Jquery: https://api.jquery.com/
+	AJAX/JSON (transport of data between server and browser)
+	JQuery.js Library: https://api.jquery.com/
+
+	PHP: http://php.net/manual/en/
+
+	MySQL database (with 3 tables: persons, telephones, teltypes)
+
+
+## Backend URLs:
+				
+	* [GET] persons
+	* [GET, POST, DELETE] persons/{ID}
+	* [GET] persons/{ID}/telephones
+	* [GET] telephones
+	* [GET, POST, DELETE] telephones/{ID}
+	* [GET] teltypes
+
+## JSON entities:
+
+	* person: ` {id:1, fname:"Ivan", lname:"Ivanov", address:"Dragan Tsankov 47"} `
+	* teltype: ` {id:2, name:"Mobile"} `
+	* telephone: ` {id:5, person_id:1, teltype_id:2, number:"0883199482"} `
+	* message: ` {type:"error", text:"An Error Ocurred!"} `
+	* server-response: ` {code:200, messages:[], person/persons/telephones...} `
