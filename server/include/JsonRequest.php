@@ -2,8 +2,8 @@
 
 class JsonRequest {
 	
-	public $method = "";
-	public $path = "";
+	public $method = '';
+	public $path = '';
 	public $data = null;
 	
 	public function __construct() {
