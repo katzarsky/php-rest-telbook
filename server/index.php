@@ -7,11 +7,8 @@ include 'include/JsonRequest.php';
 include 'include/JsonResponse.php';
 include 'include/MysqliBinder.php';
 
-// Create request, response and db-connection
-$request = new JsonRequest();
+// Create response. if something is wrong - at least we can tell the client.
 $response = new JsonResponse();
-$db = new MysqliBinder('127.0.0.1:3306', 'root', '', 'telbook');
-$db->response = $response;
 
 // Handle all php-errors and display them in JSON
 ini_set('display_errors', 0);
@@ -29,5 +26,17 @@ register_shutdown_function(function() use ($response) {
 		echo $response->render();
 	}
 });
+
+// Create request, and db-connection
+$request = new JsonRequest();
+$db = new MysqliBinder('127.0.0.1:3306', 'root', '', 'telbook');
+if($db->connect_errno) {
+	$response->code(500);
+	$response->error('Cannot connect to database.');
+	echo $response->render();
+	exit();
+}
+
+$db->response = $response;
 
 include 'router.php';

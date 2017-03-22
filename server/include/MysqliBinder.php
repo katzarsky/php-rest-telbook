@@ -19,12 +19,7 @@ class MysqliBinder extends Mysqli {
 	
 	public function querybind($template_query, $args=null) {
 		$query = $this->bind($template_query, $args);
-		$this->response->info('SQL: '.$query);
-		$result = parent::query($query);
-		if($result === false) {
-			$this->response->error('SQL ERROR: '.$this->error);	
-		}
-		return $result;
+		return $this->query($query);
 	}
 	
 	public function querybind_one($template_query, $args=null) {
