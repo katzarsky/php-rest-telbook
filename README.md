@@ -26,8 +26,8 @@ A simple `telbook` web-application, using REST-full PHP backend.
 
 ## JSON entities:
 
-	* person: ` {id:1, fname:"Ivan", lname:"Ivanov", address:"Dragan Tsankov 47"} `
-	* teltype: ` {id:2, name:"Mobile"} `
-	* telephone: ` {id:5, person_id:1, teltype_id:2, number:"0883199482"} `
-	* message: ` {type:"error", text:"An Error Ocurred!"} `
-	* server-response: ` {code:200, messages:[], person/persons/telephones...} `
+	* person: {id:1, fname:"Ivan", lname:"Ivanov", address:"Dragan Tsankov 47"}
+	* teltype: {id:2, name:"Mobile"} 
+	* telephone: {id:5, person_id:1, teltype_id:2, number:"0883199482"}
+	* message: {type:"error", text:"An Error Ocurred!"}
+	* server-response: {code:200, messages:[], person/persons/telephones...}
