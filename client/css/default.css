@@ -23,15 +23,9 @@ textarea {
 
 h1 {
 	margin: 0.3em 0 0.2em 0;
-	font-size:1.6em;
-}
-h2 {
-	margin: 0.3em 0 0.2em 0;
-	font-size:1.25em;
-}
-h3 {
-	margin: 0.3em 0 0.2em 0;
-	font-size:1.1em;
+	font-size: 1.5em;
+	font-weight: normal;
+	color: #333; 
 }
 h1 small, h2 small, h3 small{
 	opacity: .4;
@@ -91,45 +85,41 @@ td.panel:hover {
 	/*background: #efe;*/
 }
 
-.icon { padding-left:18px; }
-.edit_icon { background: transparent url(icons/pencil.png) top left no-repeat; }
-.add_icon { background: transparent url(icons/add.png) top left no-repeat; }
-.delete_icon { background: transparent url(icons/cross.png) top left no-repeat; }
-.view_icon { background: transparent url(icons/magnifier.png) top left no-repeat; }
-.info_icon { background: transparent url(icons/information.png) top left no-repeat; }
-.error_icon { background: transparent url(icons/exclamation.png) top left no-repeat; }
-.user_icon { background: transparent url(icons/user.png) top left no-repeat; }
-.ok_icon { background: transparent url(icons/tick.png) top left no-repeat; }
-.refresh_icon { background: transparent url(icons/refresh.png) top left no-repeat; }
-.app_icon { background: transparent url(icons/brick.png) top left no-repeat; }
+.edit_icon { padding-left:18px; background: transparent url(icons/pencil.png) top left no-repeat; }
+.add_icon { padding-left:18px; background: transparent url(icons/add.png) top left no-repeat; }
+.delete_icon { padding-left:18px; background: transparent url(icons/cross.png) top left no-repeat; }
+.view_icon { padding-left:18px; background: transparent url(icons/magnifier.png) top left no-repeat; }
+.user_icon { padding-left:18px; background: transparent url(icons/user.png) top left no-repeat; }
+.ok_icon { padding-left:18px; background: transparent url(icons/tick.png) top left no-repeat; }
+.refresh_icon { padding-left:18px; background: transparent url(icons/refresh.png) top left no-repeat; }
+.app_icon { padding-left:18px; background: transparent url(icons/brick.png) top left no-repeat; }
 
-.error { color: #930; }
-.info { color: #006; }
+.info_icon { color: #777; padding-left:18px; background: transparent url(icons/information.png) top left no-repeat; }
+.error_icon { color: #930; padding-left:18px; background: transparent url(icons/exclamation.png) top left no-repeat; }
 
 label {
 	width: 100px;
 	display:inline-block;
 }
 
-input.text, 
+input, 
 input[type="text"], 
-input[type="password"], 
 select,
-textarea, 
-.customfile {
+textarea {
     background: #fff;
     border-width: 1px;
     padding: 2px;
     margin: 0;
     border-radius: 0;
 	border: 1px solid #999;
-    
+    width:200px;
 }
 
-input:read-only {
-	background: #ccc;
+input[readonly] {
+	background: #ddd;
 	box-shadow: none;
-	border-color: transparent;
+	border-color: #bbb;
+	outline-color: transparent !important;
 }
 
 button {
@@ -138,7 +128,8 @@ button {
 	padding: 3px 10px;
 	outline: none;
 	border-width: 0px;
-	width: 100%;
+	margin-left: 100px;
+	width: 200px;
 }
 
 button:hover {
@@ -149,6 +140,3 @@ button:active {
 	background: #258;
 }
 
-.medium {
-	width:200px;
-}

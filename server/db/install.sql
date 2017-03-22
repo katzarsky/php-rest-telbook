@@ -1,12 +1,11 @@
 
-
 CREATE TABLE IF NOT EXISTS `persons` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `fname` varchar(12) NOT NULL,
   `lname` varchar(15) NOT NULL,
   `address` varchar(33) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 INSERT INTO `persons` (`id`, `fname`, `lname`, `address`) VALUES
 (1, 'Sylvester', 'Stallone', 'Chicago'),
@@ -23,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `telephones` (
   `teltype_id` int(11) NOT NULL,
   `number` varchar(33) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 INSERT INTO `telephones` (`id`, `person_id`, `teltype_id`, `number`) VALUES
 (1, 1, 1, '032 / 123 4560'),
@@ -33,12 +32,11 @@ INSERT INTO `telephones` (`id`, `person_id`, `teltype_id`, `number`) VALUES
 (5, 5, 1, '032 / 666 666');
 
 
-
 CREATE TABLE IF NOT EXISTS `teltypes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(10) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 INSERT INTO `teltypes` (`id`, `name`) VALUES
 (1, 'Home'),

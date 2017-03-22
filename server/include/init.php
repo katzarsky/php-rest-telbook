@@ -10,7 +10,7 @@ include 'MysqliBinder.php';
 // Create request, response and db-connection
 $request = new JsonRequest();
 $response = new JsonResponse();
-$db = new MysqliBinder('127.0.0.1:3306', 'root', '', 'telbook');
+$db = new MysqliBinder('127.0.0.1:3306', 'root', 'plovdiv81', 'telbook');
 $db->response = $response;
 
 // Handle all php-errors and display them in JSON

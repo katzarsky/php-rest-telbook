@@ -6,9 +6,8 @@
 	<link rel="stylesheet" type="text/css" href="client/css/default.css">
 	<script type="text/javascript" src="client/js/jquery-3.1.1.js"></script>
 	<script type="text/javascript" src="client/js/jquery-rest.js"></script>
-	<script type="text/javascript" src="client/js/client-data.js"></script>
 	<script type="text/javascript" src="client/js/client-render.js"></script>
-	<script type="text/javascript" src="client/js/client-events.js"></script>
+	<script type="text/javascript" src="client/js/client.js"></script>
 </head>
 <body>
 	<table class='layout'>
@@ -21,9 +20,10 @@
 				<a href='#' class='icon add_icon person-add'>Add new person</a>
 				<a href='#' class='icon refresh_icon persons-refresh'>Refresh</a>
 			</p>
+			<div id='persons-messages'></div>
 			</td>
 			<td class='panel'>
-				<div id='person-form'></div>
+				<div id='person-edit'></div>
 				<div id='person-messages'></div>
 			</td>
 		</tr>
@@ -32,11 +32,12 @@
 			<td class='panel'>
 				<h1>Telephones</h1>
 				<div id='telephones'>
-					<p class='icon info_icon'>Click a person to view his/hers telephones.</p>
+					<p class='icon info_icon'>Click a person to view its telephones.</p>
 				</div>
+				<div id='telephones-messages'></div>
 			</td>
 			<td class='panel'>
-				<div id='telephone-form'></div>
+				<div id='telephone-edit'></div>
 				<div id='telephone-messages'></div>
 			</td>
 		</tr>

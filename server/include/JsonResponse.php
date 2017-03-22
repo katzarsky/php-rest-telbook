@@ -28,7 +28,10 @@ class JsonResponse {
 	
 	public function render() {
 		header("Content-Type: application/json; charset=utf-8");
-		if($this->code !== null) {
+		if($this->code === null) {
+			$this->code = 200;
+		}
+		else {
 			http_response_code($this->code);
 		}
 		$flags = JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT;
