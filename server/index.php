@@ -17,7 +17,7 @@ set_error_handler(function($errno, $errstr, $errfile, $errline) use ($response) 
 	//$response->code(500);
 	$response->error("[$errfile LINE:$errline] $errstr");
 	return true;
-}, E_ALL | E_NOTICE);
+}, E_ALL | E_STRICT & ~E_DEPRECATED);
 
 register_shutdown_function(function() use ($response) {
 	$error = error_get_last();
