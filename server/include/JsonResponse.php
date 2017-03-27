@@ -3,6 +3,7 @@
 class JsonResponse {
 	public $code = null; // 200 by default for HTTP protocol
 	public $messages = [];
+	public $rendered = false;
 	
 	public function error($text) {		
 		$this->messages[] = (object) ['type' => 'error', 'text' => $text];
@@ -27,6 +28,8 @@ class JsonResponse {
 	}
 	
 	public function render() {
+		if($this->rendered) return;
+		$this->rendered = true;
 		header("Content-Type: application/json; charset=utf-8");
 		if($this->code === null) {
 			$this->code = 200;

@@ -20,16 +20,21 @@ set_error_handler(function($errno, $errstr, $errfile, $errline) use ($response) 
 }, E_ALL | E_NOTICE);
 
 register_shutdown_function(function() use ($response) {
-	if(!is_null($error = error_get_last())) {
-		$response->error('['.$error['file'].' LINE:'.$error['line'].'] '.$error['message']);
+	$error = error_get_last();
+	$error_flags = (E_COMPILE_ERROR | E_CORE_ERROR | E_ERROR | E_PARSE);
+	$fatal_error = ((($error['type']+0) & $error_flags) != 0);
+	$response->error('['.$error['file'].' LINE:'.$error['line'].'] '.$error['message']);
+	if($fatal_error) {
 		$response->code(500);
 		echo $response->render();
+		exit();
 	}
 });
 
 // Create request, and db-connection
 $request = new JsonRequest();
-$db = new MysqliBinder('127.0.0.1:3306', 'root', '', 'telbook');
+$db = new MysqliBinder('127.0.0.1:3306', 'root', 'plovdiv81', 'telbook');
+
 if($db->connect_errno) {
 	$response->code(500);
 	$response->error('Cannot connect to database.');
