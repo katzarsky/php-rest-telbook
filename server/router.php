@@ -15,10 +15,14 @@ else if($request->get('persons/[0-9]+')) {
 else if($request->post('persons/[0-9]+') || $request->post('persons')) {
 	$person_id = (int) $request->segment(1, 0);
 	$person = $request->data;
-	
-	if(strlen($person->fname) < 1) $response->error('First Name is empty.');
-	if(strlen($person->lname) < 1) $response->error('Last Name is empty.');
-	if(strlen($person->address) < 3) $response->error('Address is shorter then 3 characters.');
+	if($person) {	
+		if(strlen($person->fname) < 1) $response->error('First Name is empty.');
+		if(strlen($person->lname) < 1) $response->error('Last Name is empty.');
+		if(strlen($person->address) < 3) $response->error('Address is shorter then 3 characters.');
+	}
+	else {
+		$response->error('No JSON data sent.');
+	}
 	
 	if($response->hasErrors()) {
 		$response->code(400);
@@ -75,6 +79,8 @@ else if($request->post('telephones/[0-9]+') || $request->post('telephones')) {
 		if(strlen($telephone->number) < 1) $response->error('Number is empty.');
 		if($telephone->person_id < 1) $response->error('Missing person_id.');
 		if($telephone->teltype_id < 1) $response->error('Type is empty.');
+//		$teltype = $db->querybind_one("SELECT * FROM teltypes WHERE id = ?", [$telephone->teltype_id + 0]);
+//		if(!$teltype) $response->error('Type is invalid.');
 	}
 	else {
 		$response->error('No JSON data sent.');
