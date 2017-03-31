@@ -26,9 +26,15 @@ else if($request->post('persons/[0-9]+') || $request->post('persons')) {
 	}
 	else {
 		if($person_id > 0) { // update existing
-			$result = $db->querybind('UPDATE persons SET fname=?, lname=?, address=? WHERE id=?', [$person->fname, $person->lname, $person->address, $person_id]);
+			$result = $db->querybind(
+				'UPDATE persons SET fname=?, lname=?, address=? WHERE id=?', 
+				[$person->fname, $person->lname, $person->address, $person_id]
+			);
 		} else { // insert new
-			$result = $db->querybind('INSERT INTO persons SET fname=?, lname=?, address=?', [$person->fname, $person->lname, $person->address]);
+			$result = $db->querybind(
+				'INSERT INTO persons SET fname=?, lname=?, address=?', 
+				[$person->fname, $person->lname, $person->address]
+			);
 			$person_id = $db->insert_id;
 		}
 		

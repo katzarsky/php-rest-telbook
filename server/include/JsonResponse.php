@@ -18,13 +18,12 @@ class JsonResponse {
 	}
 	
 	public function hasErrors() {
-		$errors = 0;
 		foreach($this->messages as $m) {
 			if($m->type == 'error') {
-				$errors++;
+				return true;
 			}
 		}
-		return ($errors > 0);
+		return false;
 	}
 	
 	public function render() {

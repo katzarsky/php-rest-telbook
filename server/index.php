@@ -1,5 +1,6 @@
 <?php
 
+// Force full error reporting without deprecated PHP features.
 error_reporting(E_ALL | E_STRICT & ~E_DEPRECATED);
 
 // Include all needed classes
@@ -7,7 +8,8 @@ include 'include/JsonRequest.php';
 include 'include/JsonResponse.php';
 include 'include/MysqliBinder.php';
 
-// Create response. if something is wrong - at least we can tell the client.
+// Create response. 
+// If something is wrong - at least we can tell the client.
 $response = new JsonResponse();
 
 // Handle all php-errors and display them in JSON
@@ -24,7 +26,7 @@ register_shutdown_function(function() use ($response) {
 	$error_flags = (E_COMPILE_ERROR | E_CORE_ERROR | E_ERROR | E_PARSE);
 	$fatal_error = ((($error['type']+0) & $error_flags) != 0);
 	$response->error('['.$error['file'].' LINE:'.$error['line'].'] '.$error['message']);
-	if($fatal_error) {
+	if($fatal_error) { // the code cannot restore execution...
 		$response->code(500);
 		echo $response->render();
 		exit();
@@ -33,7 +35,7 @@ register_shutdown_function(function() use ($response) {
 
 // Create request, and db-connection
 $request = new JsonRequest();
-$db = new MysqliBinder('127.0.0.1:3306', 'root', '', 'telbook');
+$db = new MysqliBinder('127.0.0.1:3306', 'root', 'plovdiv81', 'telbook');
 
 if($db->connect_errno) {
 	$response->code(500);
