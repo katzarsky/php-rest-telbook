@@ -3,7 +3,7 @@
 class JsonResponse {
 	public $code = null; // 200 by default for HTTP protocol
 	public $messages = [];
-	public $rendered = false;
+	private $rendered = false;
 	
 	public function error($text) {		
 		$this->messages[] = (object) ['type' => 'error', 'text' => $text];
