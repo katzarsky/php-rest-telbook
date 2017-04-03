@@ -43,7 +43,7 @@ if($db->connect_errno) {
 	echo $response->render();
 	exit();
 }
-
+$db->set_charset("utf8");
 $db->response = $response;
 
 include 'router.php';
