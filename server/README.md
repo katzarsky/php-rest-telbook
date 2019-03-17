@@ -1,6 +1,6 @@
 # php-rest-telbook/server
 
-The backend.
+The backend. It uses a MySql database to persist the data. A sample database is in the `db/` subdirectory.
 
 ## index.php 
 
