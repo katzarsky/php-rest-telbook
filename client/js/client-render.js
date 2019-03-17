@@ -13,7 +13,7 @@ function render_persons(persons) {
 		var p = persons[i];
 		html += "<tr>" +
 			"<td>" + p.id + "</td>" +
-			"<td><a href='#' data-person-id='" + p.id + "' class='user_icon person-telephones'>" +
+			"<td><a href='#' data-person-id='" + p.id + "' class='person-telephones'>" +
 				html_escape(p.fname + " " + p.lname) +
 			"</a></td>"+
 			"<td>" + html_escape(p.address) + "</td>" +
