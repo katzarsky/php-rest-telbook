@@ -1,6 +1,6 @@
 # php-rest-telbook
 
-A simple `telbook` web-application, using REST-full PHP backend.
+A simple `telbook` web-application, using REST backend written in `php`.
 
 ## Utilizes:
 
