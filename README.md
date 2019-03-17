@@ -4,16 +4,15 @@ A simple `telbook` web-application, using REST backend written in `php` and simp
 
 ## Utilizes:
 
-	.htaccess (to implement URL rewriting for the server backend)
+	.htaccess (for URL rewriting at the server backend, mod_rewrite needed)
 
 	HTML/CSS (browser visualization)
 	AJAX/JSON (transport of data between server and browser)
-	JQuery.js Library: https://api.jquery.com/
+	JQuery.js Library: https://api.jquery.com/ (ver 3.0+)
 
-	PHP: http://php.net/manual/en/
+	PHP: http://php.net/manual/en/ (ver 7.0+)
 
 	MySQL database (with 3 tables: persons, telephones, teltypes)
-
 
 ## Backend URLs:
 				
