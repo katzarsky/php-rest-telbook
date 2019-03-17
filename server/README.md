@@ -1,8 +1,10 @@
 # php-rest-telbook/server
 
+The backend.
+
 ## index.php 
 
-Setups all objects needed.
+Setups all objects needed. Calls `router.php` at the end.
 
 ## router.php 
 
@@ -30,3 +32,10 @@ JSON structure is:
 ## include/MysqliBinder.php
 
 Provides easy anti-injection pattern through `?` markers and arguments.
+
+Methods:
+
+  `bind($sql, $args)` Replaces all `?` in `$sql` with corresponding `$args[N]`. Escapes.
+  `querybind($sql, $args)` Same as above but executes the `$sql`. Good for `INSERT`, `UPDATE`, `DELETE`
+  `querybind_one($sql, $args)` Executes the `$sql` and returns first row as object. Good for `SELECT` by primary key.
+  `querybind_all($sql, $args)` Executes the `$sql` and returns all rows as array of object. Good for `SELECT`
