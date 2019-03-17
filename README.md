@@ -1,6 +1,6 @@
 # php-rest-telbook
 
-A simple `telbook` web-application, using REST backend written in `php`.
+A simple `telbook` web-application, using REST backend written in `php` and simple `js/jquery` frontend.
 
 ## Utilizes:
 
@@ -26,8 +26,8 @@ A simple `telbook` web-application, using REST backend written in `php`.
 
 ## JSON entities:
 
-	* person: {id:1, fname:"Ivan", lname:"Ivanov", address:"Dragan Tsankov 47"}
+	* person: {id:1, fname:"Krali", lname:"Marko", address:"St. Petersburg 63"}
 	* teltype: {id:2, name:"Mobile"} 
-	* telephone: {id:5, person_id:1, teltype_id:2, number:"0883199482"}
+	* telephone: {id:5, person_id:1, teltype_id:2, number:"0893199422"}
 	* message: {type:"error", text:"An Error Ocurred!"}
 	* server-response: {code:200, messages:[], person/persons/telephones...}
