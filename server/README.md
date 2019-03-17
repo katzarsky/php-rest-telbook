@@ -28,6 +28,10 @@ JSON structure is:
   - `messages` an array of success of error messages
   - `data` the object or array of the actual data payload
   
+Methods:
+  - `code($code)` Sets the HTTP status code
+  - `info($message)` Adds a success message to `->messages[]`
+  - `error($message)` Adds an error message to `->messages[]`
   
 ## include/MysqliBinder.php
 
