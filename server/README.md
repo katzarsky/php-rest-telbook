@@ -10,7 +10,7 @@ Setups all objects needed for `database`, `error handling`, `request` and `respo
   - `$request` instance of JsonRequest
   - `$response` instance of JsonResponse
   
-** Calls `router.php` at the end. **
+**Calls `router.php` at the end**
 
 ## router.php 
 
