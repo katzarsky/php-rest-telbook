@@ -6,17 +6,19 @@ html, body {
 	font-weight: normal;
 	background: #ffffff;
 }
+
 * {
 	box-sizing: border-box;
 }
+
 body {
 	margin: 1em;
 }
+
 body,
 input,
 select,
-options,
-textarea {
+table {
 	font-family: Calibri, Arial, Helvetica, sans-serif;
 	font-size: inherit;
 }
@@ -27,50 +29,43 @@ h1 {
 	font-weight: normal;
 	color: #333; 
 }
-h1 small, h2 small, h3 small{
-	opacity: .4;
-	font-size:.8em;
-}
-ul {
-	margin: .5em 0;
-	padding-left:2em;
-}
-a:link, a:visited, a:active, a.link:link, a.link:visited, a.link:active { 
-	color: #06a; 
-}
+
 table, input, button { 
 	font-size: 1em;
 }
+
 th, td { 
 	text-align:left; 
 	vertical-align: top; 
 }
-a:link, a:visited, a:active { text-decoration:none; }
-a:hover { text-decoration:underline; }
-p {	margin: 0.5em 0 0.5em 0; }
-.b, label { font-weight: bold; }
 
-table.grid,  
-table.grid th, 
-table.grid td {
+a:link, a:visited, a:active { 
+	color: #06a; 
+	text-decoration:none;
+}
+
+a:hover { 
+	text-decoration:underline; 
+}
+
+p {	
+	margin: 0.5em 0 0.5em 0; 
+}
+
+table.grid, table.grid th, table.grid td {
 	border: 1px solid #bbb;
 	border-collapse:collapse;
 }
 table.grid th {
 	background: #ddd;
 }
-table.grid tr,
-table.grid td {
+table.grid tr, table.grid td {
 	background: #fff;
 }
 table.grid tr:hover td {
 	background: #def !important;
 }
-table.grid tr.selected td {
-	background: #cde !important;
-}
-table.grid th, 
-table.grid td {
+table.grid th, table.grid td {
 	padding: 0.3em 0.5em;
 }
 
@@ -81,37 +76,30 @@ td.panel {
 	min-width:300px;
 	min-height:150px;
 }
-td.panel:hover {
-	/*background: #efe;*/
-}
 
 .edit_icon { padding-left:18px; background: transparent url(icons/pencil.png) top left no-repeat; }
 .add_icon { padding-left:18px; background: transparent url(icons/add.png) top left no-repeat; }
 .delete_icon { padding-left:18px; background: transparent url(icons/cross.png) top left no-repeat; }
 .view_icon { padding-left:18px; background: transparent url(icons/magnifier.png) top left no-repeat; }
-.user_icon { padding-left:18px; background: transparent url(icons/user.png) top left no-repeat; }
 .ok_icon { padding-left:18px; background: transparent url(icons/tick.png) top left no-repeat; }
 .refresh_icon { padding-left:18px; background: transparent url(icons/refresh.png) top left no-repeat; }
-.app_icon { padding-left:18px; background: transparent url(icons/brick.png) top left no-repeat; }
 
 .info_icon { color: #777; padding-left:18px; background: transparent url(icons/information.png) top left no-repeat; }
 .error_icon { color: #930; padding-left:18px; background: transparent url(icons/exclamation.png) top left no-repeat; }
 
 label {
+	font-weight: bold;
 	width: 100px;
 	display:inline-block;
 }
 
-input, 
-input[type="text"], 
-select,
-textarea {
+input, select {
     background: #fff;
     border-width: 1px;
     padding: 2px;
     margin: 0;
     border-radius: 0;
-	border: 1px solid #999;
+    border: 1px solid #999;
     width:200px;
 }
 
@@ -139,4 +127,3 @@ button:hover {
 button:active {
 	background: #258;
 }
-
