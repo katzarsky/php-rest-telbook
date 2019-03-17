@@ -4,11 +4,21 @@ The backend. It uses a MySql database to persist the data. A sample database is 
 
 ## index.php 
 
-Setups all objects needed. Calls `router.php` at the end.
+Setups all objects needed for `database`, `error handling`, `request` and `response`.
+
+  - `$db` instance of MysqliBinder
+  - `$request` instance of JsonRequest
+  - `$response` instance of JsonResponse
+  
+** Calls `router.php` at the end. **
 
 ## router.php 
 
-Evaluates the request URL and renders JSON output.
+Evaluates the request URL and renders JSON output. 
+Contains `if-elseif-else` structure for routing. The final else is for 404 (Not Found).
+At the end renders the response as JSON.
+
+# php-rest-telbook/server/include
 
 ## include/JsonRequest.php
 
@@ -58,4 +68,6 @@ Provides easy anti-injection pattern through `?` markers and arguments.
   - `bind($sql, $args)` Replaces all `?` in `$sql` with corresponding `$args[N]`. Escapes.
   - `querybind($sql, $args)` Same as above but executes the `$sql`. Good for `INSERT`, `UPDATE`, `DELETE`
   - `querybind_one($sql, $args)` Executes the `$sql` and returns first row as object. Good for `SELECT` by primary key.
-  - `querybind_all($sql, $args)` Executes the `$sql` and returns all rows as array of object. Good for `SELECT`
+  - `querybind_all($sql, $args)` Executes the `$sql` and returns all rows as array of object. Good for `SELECT`.
+  
+    Example: `$db->querybind_all('SELECT * FROM telephones WHERE person_id=?', [3]);`
