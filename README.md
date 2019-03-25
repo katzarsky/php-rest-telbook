@@ -4,12 +4,12 @@ A simple `telbook` web-application, using REST backend written in `php` and simp
 
 ## How Does it Work?
 
-	1. Browser opens `index.html` (you may omit it from the URL)
-	2. `index.html` loads all `client/js` files and makes the app interactive.
-	3. When browser AJAX-es to URL (that doesn't physically exist as a file) `.htaccess` reroutes request to `server/index.php`.
-	4. `index.php` setups error handling and creates `$db`, `$request` and `$response`. Then calls `router.php`.
-	5. `router.php` matches the URL and HTTP method and executes piece of code. Sends JSON response.
-	6. Browser receives JSON and renders the data appropriately. Uses `client-render.js`.
+1. Browser opens `index.html` (you may omit it from the URL)
+2. `index.html` loads all `client/js` files and makes the app interactive.
+3. When browser AJAX-es to URL (that doesn't physically exist as a file) `.htaccess` reroutes request to `server/index.php`.
+4. `index.php` setups error handling and creates `$db`, `$request` and `$response`. Then calls `router.php`.
+5. `router.php` matches the URL and HTTP method and executes piece of code. Sends JSON response.
+6. Browser receives JSON and renders the data appropriately. Uses `client-render.js`.
 
 ## Utilizes:
 
