@@ -5,7 +5,7 @@ The frontend. It uses a JQuery to:
   * Fetch data from server using AJAX: `$.get(url)`
   * Post JSON data to server: `$.postJSON(url, data)`
   * Delete data from server: `$.delete(url)`
-  * Make the interface interactive: `$(document).on('click', lambda_function)`
+  * Make the interface interactive: `$(document).on(event, selector, lambda_function)`
   
 ## client.js
 
