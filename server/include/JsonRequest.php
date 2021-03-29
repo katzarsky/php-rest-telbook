@@ -13,7 +13,7 @@ class JsonRequest {
 		$this->data = json_decode(file_get_contents('php://input'));
 	}
 	
-	public function is($route, $method=null) {
+	public function is($method, $route) {
 		if($method === null || $method == $this->method) {
 			return preg_match('#^'.$route.'$#', $this->path);
 		}
