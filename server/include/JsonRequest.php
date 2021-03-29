@@ -13,41 +13,15 @@ class JsonRequest {
 		$this->data = json_decode(file_get_contents('php://input'));
 	}
 	
-	private function match($route, $method=null) {
+	public function is($route, $method=null) {
 		if($method === null || $method == $this->method) {
-			$reg_exp = '/^'.str_replace('/', '\/', $route).'$/';
-			if(preg_match($reg_exp, $this->path)) {
-				return true;
-			}
+			return preg_match('#^'.$route.'$#', $this->path)) {
 		}
 		return false;
 	}
 
 	public function segment($segment_index, $default=null) {
 		$segments = explode('/', $this->path);
-		if(isset($segments[$segment_index])) {
-			return $segments[$segment_index];
-		}
-		return $default;
-	}
-	
-	public function get($route) {
-		return $this->match($route, 'GET');
-	}
-
-	public function put($route) {
-		return $this->match($route, 'PUT');
-	}
-	
-	public function post($route) {
-		return $this->match($route, 'POST');
-	}
-	
-	public function delete($route) {
-		return $this->match($route, 'DELETE');
-	}
-
-	public function any($route) {
-		return $this->match($route, null);
+		return $segments[$segment_index] ?? $default;
 	}
 }
