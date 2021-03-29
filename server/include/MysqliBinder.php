@@ -17,13 +17,12 @@ class MysqliBinder extends Mysqli {
 		return $result;
 	}
 	
-	public function querybind($template_query, $args=null) {
-		$query = $this->bind($template_query, $args);
-		return $this->query($query);
+	public function exec($template_query, $args=[]) {
+		return $this->query($this->bind($template_query, $args));
 	}
 	
-	public function querybind_one($template_query, $args=null) {
-		$result = $this->querybind($template_query, $args);
+	public function one($template_query, $args=[]) {
+		$result = $this->exec($template_query, $args);
 		$single = null;
 		if($result) {
 			$single = $result->fetch_object();
@@ -31,8 +30,8 @@ class MysqliBinder extends Mysqli {
 		return $single;
 	}
 
-	public function querybind_all($template_query, $args=null) {
-		$result = $this->querybind($template_query, $args);
+	public function all($template_query, $args=[]) {
+		$result = $this->exec($template_query, $args);
 		$all = [];
 		if($result) {
 			while($row = $result->fetch_object()) {
@@ -42,28 +41,20 @@ class MysqliBinder extends Mysqli {
 		return $all;		
 	}
 	
-	public function bind($sql, $args=null) {
-		if($args===null) {
-			return $sql;
-		}
-		
+	public function bind($sql, $args=[]) {
+		$result = '';
 		$fragments = explode('?', $sql);
-		$bound_sql = '';
-		
 		for($i=0; $i<count($fragments)-1; $i++) {
-			$arg = null;
-			if(isset($args[$i])) $arg = $args[$i];
-			$bound_sql .= $fragments[$i] . $this->escape($arg);
+			$result .= $fragments[$i] . $this->escape($args[$i] ?? null);
 		}
-		$bound_sql .= $fragments[$i];
-		
-		return $bound_sql;
+		$result .= $fragments[$i];	
+		return $result;
 	}
 	
 	public function escape($arg) {
 		if(is_null($arg)) return 'NULL';
+		if(is_numeric($arg)) return $arg;
 		if(is_string($arg)) return "'".$this->real_escape_string($arg)."'";
-		if(is_numeric($arg)) return $arg+0;
 		if(is_array($arg)) {
 			$escaped = [];
 			foreach($arg as $a) {
