@@ -15,7 +15,7 @@ class JsonRequest {
 	
 	public function is($route, $method=null) {
 		if($method === null || $method == $this->method) {
-			return preg_match('#^'.$route.'$#', $this->path)) {
+			return preg_match('#^'.$route.'$#', $this->path);
 		}
 		return false;
 	}
