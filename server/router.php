@@ -1,10 +1,10 @@
 <?php
 
 // Route URL paths
-if($request->get('persons')) {
+if($request->is('GET','persons')) {
 	$response->persons = $db->querybind_all('SELECT * FROM persons ORDER BY id');
 }
-else if($request->get('persons/[0-9]+')) {
+else if($request->is('GET','persons/[0-9]+')) {
 	$person_id = (int) $request->segment(1);
 	$response->person = $db->querybind_one('SELECT * FROM persons WHERE id = ?', [ $person_id ]);
 	if(!$response->person) {
@@ -12,7 +12,7 @@ else if($request->get('persons/[0-9]+')) {
 		$response->error('404: Person Not Found.');
 	}
 }
-else if($request->post('persons/[0-9]+') || $request->post('persons')) {
+else if($request->is('POST','persons/[0-9]+') || $request->is('POST','persons')) {
 	$person_id = (int) $request->segment(1, 0);
 	$person = $request->data;
 	if($person) {	
@@ -46,13 +46,13 @@ else if($request->post('persons/[0-9]+') || $request->post('persons')) {
 		$response->info('Person saved.');	
 	}
 }
-else if($request->delete('persons/[0-9]+')) {
+else if($request->is('DELETE','persons/[0-9]+')) {
 	$person_id = (int) $request->segment(1);
 	$db->querybind('DELETE FROM telephones WHERE person_id = ?', [$person_id] );
 	$db->querybind('DELETE FROM persons WHERE id = ?', [$person_id] );
 	$response->info("Person id=$person_id and its telephones deleted.");
 }
-else if($request->get('persons/[0-9]+/telephones')) {
+else if($request->is('GET','persons/[0-9]+/telephones')) {
 	$person_id = (int) $request->segment(1);
 	$response->person = $db->querybind_one('SELECT * FROM persons WHERE id = ?', [$person_id] );
 	$response->telephones = [];
@@ -64,7 +64,7 @@ else if($request->get('persons/[0-9]+/telephones')) {
 		$response->error("404: Person id=$person_id not found.");
 	}
 }
-else if($request->get('telephones/[0-9]+')) {
+else if($request->is('GET','telephones/[0-9]+')) {
 	$telephone_id = (int) $request->segment(1);
 	$response->telephone = $db->querybind_one('SELECT * FROM telephones WHERE id = ?', [ $telephone_id ]);
 	if(!$response->telephone) {
@@ -72,7 +72,7 @@ else if($request->get('telephones/[0-9]+')) {
 		$response->error('404: Telephone Not Found.');
 	}
 }
-else if($request->post('telephones/[0-9]+') || $request->post('telephones')) {
+else if($request->is('POST','telephones/[0-9]+') || $request->is('POST','telephones')) {
 	$telephone_id = (int) $request->segment(1);
 	$telephone = $request->data; // deserialized JSON object sent over the network.
 	if($telephone) {
@@ -104,12 +104,12 @@ else if($request->post('telephones/[0-9]+') || $request->post('telephones')) {
 		$response->info('Telephone saved.');	
 	}
 }
-else if($request->delete('telephones/[0-9]+')) {
+else if($request->is('DELETE','telephones/[0-9]+')) {
 	$telephone_id = (int) $request->segment(1);
 	$db->querybind('DELETE FROM telephones WHERE id = ?', [$telephone_id] );
 	$response->info("Telephone id=$telephone_id deleted.");
 }
-else if($request->get('teltypes')) {
+else if($request->is('GET','teltypes')) {
 	$response->teltypes = $db->querybind_all('SELECT * FROM teltypes ORDER BY id');
 }
 else {
