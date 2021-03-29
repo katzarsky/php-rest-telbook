@@ -1,7 +1,7 @@
 <?php
 
 class JsonResponse {
-	public $code = null; // 200 by default for HTTP protocol
+	public $code = 200;
 	public $messages = [];
 	private $rendered = false;
 	
@@ -30,12 +30,7 @@ class JsonResponse {
 		if($this->rendered) return;
 		$this->rendered = true;
 		header("Content-Type: application/json; charset=utf-8");
-		if($this->code === null) {
-			$this->code = 200;
-		}
-		else {
-			http_response_code($this->code);
-		}
+		http_response_code($this->code);
 		$flags = JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT;
 		return json_encode($this, $flags);
 	}
