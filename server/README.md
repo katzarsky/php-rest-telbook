@@ -31,7 +31,7 @@ Parses input environment. Provides test methods for the router.
    
 ### Properties:
 
-  - `$path` contains the `PATH` part of the URL
+  - `path` contains the `PATH` part of the URL
   - `method` contains `GET` `POST` `DELETE` etc.
   - `body` contains unparsed body string of the request
   - `data` contains parsed JSON sent from the browser
