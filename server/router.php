@@ -18,7 +18,7 @@ else if($request->is('POST','persons/[0-9]+') || $request->is('POST','persons'))
 	if($person) {	
 		if(strlen($person->fname) < 1) $response->error('First Name is empty.');
 		if(strlen($person->lname) < 1) $response->error('Last Name is empty.');
-		if(strlen($person->address) < 3) $response->error('Address is shorter then 3 characters.');
+		if(strlen($person->address) < 3) $response->error('Address is shorter than 3 characters.');
 	}
 	else {
 		$response->error('No JSON data sent.');
