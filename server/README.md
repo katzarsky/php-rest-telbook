@@ -26,17 +26,14 @@ Parses input environment. Provides test methods for the router.
 
 ### Methods:
 
-  - `get($regexp)` returns true if URL matches `$regexp` and method is `GET`
-  - `put($regexp)` returns true if URL matches `$regexp` and method is `PUT`
-  - `post($regexp)` returns true if URL matches `$regexp` and method is `POST`
-  - `delete($regexp)` returns true if URL matches `$regexp` and method is `DELETE`
-  - `any($regexp)` returns true if URL matches `$regexp`
-  - `segment($n)` returns the value of the `$n`-th segment
-  
+  - `is($method, $regexp)` returns true if URL matches `$regexp` and method is equal to `$method`
+  - `segment($n, $default=null)` returns the value of the `$n`-th segment. If it does not exist returns `$default`
+   
 ### Properties:
 
   - `$path` contains the `PATH` part of the URL
   - `method` contains `GET` `POST` `DELETE` etc.
+  - `body` contains unparsed body string of the request
   - `data` contains parsed JSON sent from the browser
 
 ## include/JsonResponse.php
@@ -47,6 +44,7 @@ Creates JSON serialized response. It is used even in case of an error.
   - `code($code)` Sets the HTTP status code
   - `info($message)` Adds a success message to `->messages[]`
   - `error($message)` Adds an error message to `->messages[]`
+  - `hasError()` is true if `->messages[]` contains an error
 
 ### Properties:
 
@@ -66,8 +64,8 @@ Provides easy anti-injection pattern through `?` markers and arguments.
 ### Methods:
 
   - `bind($sql, $args)` Replaces all `?` in `$sql` with corresponding `$args[N]`. Escapes.
-  - `querybind($sql, $args)` Same as above but executes the `$sql`. Good for `INSERT`, `UPDATE`, `DELETE`
-  - `querybind_one($sql, $args)` Executes the `$sql` and returns first row as object. Good for `SELECT` by primary key.
-  - `querybind_all($sql, $args)` Executes the `$sql` and returns all rows as array of object. Good for `SELECT`.
+  - `exec($sql, $args)` Same as above but executes the `$sql`. Good for `INSERT`, `UPDATE`, `DELETE`
+  - `one($sql, $args)` Executes the `$sql` and returns first row as object. Good for `SELECT` by primary key.
+  - `all($sql, $args)` Executes the `$sql` and returns all rows as array of object. Good for `SELECT`.
   
     Example: `$db->querybind_all('SELECT * FROM telephones WHERE person_id=?', [3]);`
